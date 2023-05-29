@@ -34,6 +34,7 @@ public class PermisosTest {
         overridePermisosServStatic.when(() -> PermisosServiceStatic.isValidUser("Cliente3", "admin123")).thenReturn(true);
         overridePermisosServStatic.when(() -> PermisosServiceStatic.isValidUser("Cliente4", "admin123")).thenReturn(true);
         overridePermisosServStatic.when(() -> PermisosServiceStatic.isValidUser("German", "admin123")).thenReturn(false);
+        overridePermisosServStatic.when(() -> PermisosServiceStatic.isValidUser("Cliente5", "admin")).thenReturn(false);
 
 
         overridePermisosServStatic.when(() -> PermisosServiceStatic.getRoles("Dylan")).thenReturn("CRUD");
@@ -95,7 +96,8 @@ public class PermisosTest {
     }
     @ParameterizedTest
     @CsvSource({
-            "German,admin123,Incorrect German and admin123"
+            "German,admin123,Incorrect German and admin123",
+            "Cliente5,admin,Incorrect Cliente5 and admin"
     })
     public void verifyObtenerRolesFail(String usuarioTest, String usuarioPass, String expectedResult){
         PermisosStatic permisosStatic = new PermisosStatic();

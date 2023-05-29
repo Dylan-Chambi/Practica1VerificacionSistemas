@@ -31,6 +31,7 @@ public class PermisosTest {
         Mockito.when(permisosServiceMock.isValidUser("Cliente3", "admin123")).thenReturn(true);
         Mockito.when(permisosServiceMock.isValidUser("Cliente4", "admin123")).thenReturn(true);
         Mockito.when(permisosServiceMock.isValidUser("German", "admin123")).thenReturn(false);
+        Mockito.when(permisosServiceMock.isValidUser("Cliente5", "admin")).thenReturn(false);
 
 
         Mockito.when(permisosServiceMock.getRoles("Dylan")).thenReturn("CRUD");
@@ -86,7 +87,8 @@ public class PermisosTest {
     }
     @ParameterizedTest
     @CsvSource({
-            "German,admin123,Incorrect German and admin123"
+            "German,admin123,Incorrect German and admin123",
+            "Cliente5,admin,Incorrect Cliente5 and admin"
     })
     public void verifyObtenerRolesFail(String usuarioTest, String usuarioPass, String expectedResult){
         Permisos permisos = new Permisos(permisosServiceMock);
