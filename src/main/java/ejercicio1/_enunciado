@@ -1,0 +1,18 @@
+La Pregunta 1 Examen Practico - 2022
+
+****************************************************
+
+
+Se quiere implementar un método que ayude a verificar el porcentaje de descuento que se aplica a un salario basados en el salario básico
+
+tomando en cuenta que el salario básico es 2000bs
+
+si el sueldo es menor o igual al salario básico no se aplica ningún tipo de descuento
+si el sueldo es mayor al salario básico el descuento es del 5%
+si el sueldo es mayor que el doble del salario básico el descuento es del 15%
+
+cuando el salario no es válido se lanza una: exception
+
+Aplicar el Boundary Test
+
+*  obtieneDescuesto(int salario) ----> return int
